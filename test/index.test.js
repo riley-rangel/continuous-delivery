@@ -21,12 +21,14 @@ describe('app', () => {
 
     it('responds with json including repo name and description', done => {
       request('http://localhost:3000/', (error, response, body) => {
-        const testRes = '"Name: continuous-delivery ' +
-         'Description: A practice repository for testing and deployment."'
+        const testRes = {
+          name: 'continuous-delivery',
+          description: 'A practice repository for testing and deployment.'
+        }
         expect(error).to.equal(null)
         expect(response.statusCode).to.equal(200)
-        expect(body).to.be.a('string')
-          .which.equals(testRes)
+        expect(JSON.parse(body)).to.be.an('object')
+          .which.deep.equals(testRes)
         done()
       })
     })
