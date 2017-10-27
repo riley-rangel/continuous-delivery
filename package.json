@@ -1,0 +1,28 @@
+{
+  "name": "continuous-delivery",
+  "version": "1.0.0",
+  "description": "Setting up continuous integration with Travis CI.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "watch": "nodemon .",
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riley-rangel/continuous-delivery.git"
+  },
+  "author": "riley-rangel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riley-rangel/continuous-delivery/issues"
+  },
+  "homepage": "https://github.com/riley-rangel/continuous-delivery#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  }
+}
