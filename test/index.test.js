@@ -19,11 +19,12 @@ describe('app', () => {
 
   describe('GET: "/"', () => {
 
-    it('responds with json including repo name and description', done => {
+    it('sends an object with repo name, description, and link', done => {
       request('http://localhost:3000/', (error, response, body) => {
         const testRes = {
           name: 'continuous-delivery',
-          description: 'A practice repository for testing and deployment.'
+          description: 'A practice repository for testing and deployment.',
+          repo: 'https://github.com/riley-rangel/continuous-delivery'
         }
         expect(error).to.equal(null)
         expect(response.statusCode).to.equal(200)
