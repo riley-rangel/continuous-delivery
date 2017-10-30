@@ -1,7 +1,7 @@
 {
   "name": "continuous-delivery",
   "version": "1.0.0",
-  "engine": {
+  "engines": {
     "version": "8.8.0"
   },
   "description": "Setting up continuous integration with Travis CI.",
