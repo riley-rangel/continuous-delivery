@@ -3,7 +3,7 @@ const createApp = require('./create-app')
 const { MongoClient } = require('mongodb')
 const createGateway = require('./gateway')
 
-MongoClient.connect('mongodb://localhost/todos-app', (err, db) => {
+MongoClient.connect(process.env.MONGODB_URI, (err, db) => {
   if (err) return console.error(err)
   const todos = createGateway(db.collection('todos'))
   const app = createApp(todos)
