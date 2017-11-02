@@ -17,10 +17,10 @@ describe('app', () => {
     server.close(() => done())
   })
 
-  describe('GET: "/"', () => {
+  describe('GET: "/api/"', () => {
 
     it('sends an object with repo name, description, and link', done => {
-      request('http://localhost:3000/', (error, response, body) => {
+      request('http://localhost:3000/api/', (error, response, body) => {
         const testRes = {
           name: 'continuous-delivery',
           description: 'A practice repository for testing and deployment.',
