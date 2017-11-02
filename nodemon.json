@@ -1,5 +1,3 @@
 {
-  "ignore": [
-    "server/public"
-    ]
+  "ignore": [ "server/public" ]
 }
