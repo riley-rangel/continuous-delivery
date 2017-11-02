@@ -1,7 +1,7 @@
 require('dotenv/config')
 const { expect } = require('chai')
 const { before, describe, it, after } = require('mocha')
-const createApp = require('../create-app')
+const createApp = require('../server/create-app')
 const request = require('request')
 
 describe('app', () => {
@@ -17,10 +17,10 @@ describe('app', () => {
     server.close(() => done())
   })
 
-  describe('GET: "/"', () => {
+  describe('GET: "/api/"', () => {
 
     it('sends an object with repo name, description, and link', done => {
-      request('http://localhost:3000/', (error, response, body) => {
+      request('http://localhost:' + process.env.PORT + '/api/', (error, response, body) => {
         const testRes = {
           name: 'continuous-delivery',
           description: 'A practice repository for testing and deployment.',
