@@ -13,8 +13,8 @@
     "lint:js": "eslint ./**/*.js",
     "test": "mocha test",
     "precommit": "npm test",
-    "bundle": "browserify server/index.js -t babelify -o server/public/main.js",
-    "bundle:watch": "watchify server/index.js -t babelify -o server/public/main.js",
+    "bundle": "browserify client/index.js -t babelify -o server/public/main.js",
+    "bundle:watch": "watchify client/index.js -t babelify -o server/public/main.js",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
     "start": "node .",
     "watch": "nodemon server/."
