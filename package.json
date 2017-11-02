@@ -17,7 +17,8 @@
     "bundle:watch": "watchify client/index.js -t babelify -o server/public/main.js",
     "cover": "nyc --reporter=lcov --reporter=text npm test",
     "start": "node .",
-    "watch": "nodemon server/."
+    "watch": "nodemon server/.",
+    "heroku-postbuild": "npm run bundle"
   },
   "repository": {
     "type": "git",
