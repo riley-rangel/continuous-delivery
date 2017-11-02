@@ -12,8 +12,13 @@ module.exports = function createGateway(collection) {
     },
     async create(newTodo) {
       const todo = Object.assign({ id: uuidv4() }, newTodo)
-      const created = await collection.insertOne(todo)
-      return created.result
+      try {
+        await collection.insertOne(todo)
+        return todo
+      }
+      catch (error) {
+        return error
+      }
     },
     async updateById(id, update) {
       if (Object.keys(update).includes('id')) return

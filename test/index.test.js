@@ -1,7 +1,7 @@
 require('dotenv/config')
 const { expect } = require('chai')
 const { before, describe, it, after } = require('mocha')
-const createApp = require('../create-app')
+const createApp = require('../server/create-app')
 const request = require('request')
 
 describe('app', () => {

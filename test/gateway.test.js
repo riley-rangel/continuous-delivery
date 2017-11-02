@@ -1,6 +1,6 @@
 const { expect } = require('chai')
 const { before, beforeEach, describe, it, after } = require('mocha')
-const createGateway = require('../gateway')
+const createGateway = require('../server/gateway')
 const { MongoClient } = require('mongodb')
 const uuidv4 = require('uuid/v4')
 
@@ -45,6 +45,23 @@ describe('gateway', () => {
 
       const notFound = await todos.find({ task: 'game on' })
       expect(notFound).to.deep.equal([])
+    })
+
+  })
+
+  describe('create method', () => {
+
+    it('returns newly inserted todo object.', async () => {
+      const newTodo = { task: 'study', due: 'later' }
+      const created = await todos.create(newTodo)
+      expect(created).to.be.an('object')
+      expect(Object.keys(created).length).to.equal(4)
+      expect(created).to.include(newTodo)
+      expect(created).with.a.property('id')
+        .which.is.a('string')
+        .with.lengthOf(36)
+      expect(created).with.a.property('_id')
+        .which.is.an('object')
     })
 
   })
