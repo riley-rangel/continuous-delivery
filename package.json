@@ -1,8 +1,8 @@
 {
   "name": "continuous-delivery",
   "version": "1.0.0",
-  "engine": {
-    "version": "8.8.0"
+  "engines": {
+    "node": "8.8.0"
   },
   "description": "Setting up continuous integration with Travis CI.",
   "main": "index.js",
