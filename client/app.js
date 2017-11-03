@@ -7,6 +7,7 @@ export default class TodoFormContainer extends Component {
     super(props)
     this.state = { todos: [] }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.addTodo = this.addTodo.bind(this)
   }
   handleSubmit(event) {
     event.preventDefault()
@@ -25,7 +26,9 @@ export default class TodoFormContainer extends Component {
       body: JSON.stringify(newTodo)
     })
     const todo = await response.json()
-    return todo
+    this.setState({
+      todos: this.state.todos.concat(todo)
+    })
   }
   async componentDidMount() {
     const response = await fetch('/api/todos')
