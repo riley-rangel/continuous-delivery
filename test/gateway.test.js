@@ -11,7 +11,7 @@ describe('gateway', () => {
   const id = uuidv4()
 
   before(done => {
-    MongoClient.connect('mongodb://localhost/todos-app', (err, _db) => {
+    MongoClient.connect('mongodb://localhost/todos-app-test', (err, _db) => {
       if (err) return done(err)
       db = _db
       todos = createGateway(db.collection('todos'))
