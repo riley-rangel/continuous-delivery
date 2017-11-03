@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import TodoForm from './todo-form'
+import TodoList from './todo-list'
 
 export default class TodoFormContainer extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.state = { todos: [] }
     this.handleSubmit = this.handleSubmit.bind(this)
   }
   handleSubmit(event) {
@@ -26,6 +27,11 @@ export default class TodoFormContainer extends Component {
     return response.json()
   }
   render() {
-    return <TodoForm handleSubmit={ this.handleSubmit } />
+    return (
+      <div className='container'>
+        <TodoForm handleSubmit={ this.handleSubmit } />
+        <TodoList todos={ this.state.todos } />
+      </div>
+    )
   }
 }
