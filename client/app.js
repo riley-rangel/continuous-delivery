@@ -24,7 +24,13 @@ export default class TodoFormContainer extends Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTodo)
     })
-    return response.json()
+    const todo = await response.json()
+    return todo
+  }
+  async componentDidMount() {
+    const response = await fetch('/api/todos')
+    const todos = await response.json()
+    this.setState({ todos })
   }
   render() {
     return (
