@@ -1,3 +1,4 @@
+require('dotenv/config')
 const { expect } = require('chai')
 const { before, beforeEach, describe, it, after } = require('mocha')
 const createGateway = require('../server/gateway')
@@ -11,7 +12,7 @@ describe('gateway', () => {
   const id = uuidv4()
 
   before(done => {
-    MongoClient.connect('mongodb://localhost/todos-app', (err, _db) => {
+    MongoClient.connect(process.env.MONGODB_URI_TEST, (err, _db) => {
       if (err) return done(err)
       db = _db
       todos = createGateway(db.collection('todos'))

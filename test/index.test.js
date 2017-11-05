@@ -10,7 +10,7 @@ describe('app', () => {
   const app = createApp()
 
   before(done => {
-    server = app.listen(process.env.PORT, () => done())
+    server = app.listen(process.env.TEST_PORT, () => done())
   })
 
   after(done => {
@@ -20,7 +20,7 @@ describe('app', () => {
   describe('GET: "/api/"', () => {
 
     it('sends an object with repo name, description, and link', done => {
-      request('http://localhost:' + process.env.PORT + '/api/', (error, response, body) => {
+      request('http://localhost:' + process.env.TEST_PORT + '/api/', (error, response, body) => {
         const testRes = {
           name: 'continuous-delivery',
           description: 'A practice repository for testing and deployment.',
